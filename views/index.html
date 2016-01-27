@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang='en-GB'>
+<head>
+  <meta charset='utf-8'>
+  <title>Bar Charts Example</title>
+
+  <link href="/css/style.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  
+<div id='container'></div>
+
+
+<div>
+
+<script id="template" type="text/ractive">
+
+<svg class = 'svg-container'>
+  
+
+  <!-- offset everything by 30,30 so we can see the labels -->
+
+    
+    <!-- the rectangle -->
+    <rect width='{{width}}' height='{{height}}' x="30" y="30" style="fill:white;fill-opacity:0.1;stroke:blue;stroke-width:0.1"/>
+
+	    <rect width='{{width1}}' height='{{height1}}' x="30" y="30" style="fill:{{#if percent1>100}}red{{else}}blue{{/if}};fill-opacity:0.8;"/>
+
+ <text class='area' x='250' y='50'>
+		{{percent1}} %
+    </text>
+
+	    <!-- the rectangle -->
+    <rect width='{{width}}' height='{{height}}' x="30" y="80" style="fill:white;fill-opacity:0.1;stroke:blue;stroke-width:0.1"/>
+    <rect width='{{width2}}' height='{{height2}}' fill='blue' x="30" y="80"  style="fill:{{#if percent2>100}}red{{else}}blue{{/if}};fill-opacity:0.8;"/>
+
+	 <text class='area' x='250' y='100'>
+		{{percent2}} %
+    </text>
+
+	    <!-- the rectangle -->
+    <rect width='{{width}}' height='{{height}}' x="30" y="130" style="fill:white;fill-opacity:0.1;stroke:blue;stroke-width:0.1"/>
+    <rect width='{{width3}}' height='{{height3}}' fill='green' x="30" y="130"  style="fill:{{#if percent3>100}}red{{else}}blue{{/if}};fill-opacity:0.8;"/>
+
+	 <text class='area' x='250' y='150'>
+		{{percent3}} %
+    </text>
+   
+  
+</svg>
+<br>
+
+<div id='buttonsDiv'>
+<select value='{{selectedIndex}}'>
+<option value=1>#Progress1</option>
+<option value=2>#Progress2</option>
+<option value=3>#Progress3</option>
+</select>
+
+<button on-click="min25">-25</button>
+
+<button on-click="min10">-10</button>
+
+<button on-click="plus10">+10</button>
+
+<button on-click="plus25">+25</button>
+
+</div>
+
+</script>
+
+</div>
+
+<script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script>
+<script src='/scripts/main.min.js'></script>
+
+
+</body>
+</html>
